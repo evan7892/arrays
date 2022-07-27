@@ -6,10 +6,10 @@ function bienvenida() {
 
 //Función de menu
 function menu() {
-    const opcion = prompt("En nuestro carrito de compras tienes diferentes opciones \n 1- Ver los productos disponibles \n 2- Hacer un prestamo a cuotas con Elite Gaming \n 3- Acceder a tu cuenta para retirar dinero \n 4- Salir del carrito Elite")
+    const opcion = prompt("En nuestro carrito de compras tienes diferentes opciones \n 1- Ver los productos disponibles \n 2- Hacer un prestamo a cuotas con Elite Gaming \n 3- Acceder a tu cuenta para retirar dinero \n 4- Salir del carrito Elite \n 5- Buscar productos disponibles (consola) \n 6- Buscar productos por precio (consola)")
     switch (opcion) {
         case "1":
-            let opcionMicro = prompt("En Elite gaming tenemos disponible los siguientes productos \n1- Microfonos \n2- Diademas \n3- Mouse \n4- Camaras \n ¿En cuál de todos estos estás interesado?")
+            const opcionMicro = prompt("En Elite gaming tenemos disponible los siguientes productos \n1- Microfonos \n2- Diademas \n3- Mouse \n4- Camaras \n ¿En cuál de todos estos estás interesado?")
             switch (opcionMicro) {
                 case "1":
                     let productoA = prompt("1- Microfono Hyperx Quadcast, costo $170 \n2- Maono Au-A04 costo $70 \n 3 para volver al menú")
@@ -136,7 +136,7 @@ function menu() {
                     let productoD = prompt("1- Logitech Brio, costo $300 \n2- Logitech Stream Cam costo $120 \n 3 para volver al menú")
                     switch (productoD) {
                         case "1":
-                            let brio = prompt("¿Deseas comprar Logitech G203 \n1- para comprar \n2- para volver al menú")
+                            let brio = prompt("¿Deseas comprar Logitech brio \n1- para comprar \n2- para volver al menú")
                             switch (brio) {
                                 case "1":
                                     alert("Perfecto, haz comprado Logitech Brio, por 300")
@@ -191,6 +191,13 @@ function menu() {
         case "4":
             alert("Gracias por usar nuestro carrito, vuelve cuando desees!")
             break;
+        case "5":
+            busqueda();
+            break;
+            case "6":
+                busquedaPrecio();
+                break;
+
 
         default:
             alert("No seleccionó ninguna opción correcta")
@@ -257,8 +264,101 @@ function acceder() {
 
     }
 }
+//funcion de busqueda por marca
+function busqueda() {
+    const productos = [{
+        nombre: "Maono Au-A04",
+        categoria: "Microfono",
+        precio: 70,
+    },
+    {
+        nombre: "hyperX",
+        categoria: "Microfono",
+        precio: 170,
+    },
+    {
+        nombre: "logitech G203",
+        categoria: "Mouse",
+        precio: 40,
+    },
+    {
+        nombre: "Logitech G502",
+        categoria: "Mouse",
+        precio: 60,
+    },
+    {
+        nombre: "logitech brio 4k",
+        categoria: "Webcams",
+        precio: 300,
+    },
+    {
+        nombre: "Logitech stream cam",
+        categoria: "Webcams",
+        precio: 120,
+    },
+    {
+        nombre: "Onikuma k10",
+        categoria: "Diademas",
+        precio: 40,
+    },
+    {
+        nombre: "Logitech G733",
+        categoria: "Diademas",
+        precio: 170,
+    }
+    ]
+    let keyword = prompt("Ingresa por favor qué periferico deseas buscar")
+    const resultadoBusqueda = productos.filter((producto) => producto.nombre.includes(keyword))
+    console.log(resultadoBusqueda);
 
+}
 
+//función de busqueda por precio
+function busquedaPrecio() {
+    const productos = [{
+        nombre: "Maono Au-A04",
+        categoria: "Microfono",
+        precio: 70,
+    },
+    {
+        nombre: "hyperX",
+        categoria: "Microfono",
+        precio: 170,
+    },
+    {
+        nombre: "logitech G203",
+        categoria: "Mouse",
+        precio: 40,
+    },
+    {
+        nombre: "Logitech G502",
+        categoria: "Mouse",
+        precio: 60,
+    },
+    {
+        nombre: "logitech brio 4k",
+        categoria: "Webcams",
+        precio: 300,
+    },
+    {
+        nombre: "Logitech stream cam",
+        categoria: "Webcams",
+        precio: 120,
+    },
+    {
+        nombre: "Onikuma k10",
+        categoria: "Diademas",
+        precio: 40,
+    },
+    {
+        nombre: "Logitech G733",
+        categoria: "Diademas",
+        precio: 170,
+    }]
+    let precioIngresado = prompt("Encuentra tu producto por precio, ingresa un precio por favor")
+    const encontrarPrecio = productos.find((producto) => producto.precio == precioIngresado);
+    console.log(encontrarPrecio);
+}
 //llamado de funciones
 bienvenida();
-menu();
+menu()
